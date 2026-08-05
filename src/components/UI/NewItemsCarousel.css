@@ -1,0 +1,18 @@
+.slick-prev,
+.slick-next {
+  z-index: 10;
+  width: 40px !important;
+  height: 40px !important;
+  border: 0 12px 0 12px !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 30px !important;
+  color: #8364E2 !important;
+  opacity: 1 !important;
+}
+
+.nft__item_preview {
+  max-height: 300px;
+}
