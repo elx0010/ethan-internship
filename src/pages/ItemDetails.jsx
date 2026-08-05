@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from "react";
 import EthImage from "../images/ethereum.svg";
 import { Link, useParams } from "react-router-dom";
-import AuthorImage from "../images/author_thumbnail.jpg";
-import nftImage from "../images/nftImage.jpg";
 import axios from 'axios'
 import Skeleton from '../components/UI/Skeleton'
 
 const ItemDetails = () => {
   const { id } = useParams()
-  const [collections, setCollections] = useState([])
+  const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)
-  const item = collections.find(item => item.nftId == id)
+  const item = items.find(item => item.nftId == id)
 
   useEffect(() => {
     window.scrollTo(0, 0);
     async function fetchData() {
-      const { data } = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections/${id}`)
-      setCollections(data)
+      const [collectionsD, newItemsD] = await Promise.all([
+        axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections`),
+        axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems`)
+      ])
+      const combined = [...collectionsD.data, ...newItemsD.data]
+      setItems(combined)
       setLoading(false)
     }
     fetchData()
@@ -101,7 +103,7 @@ const ItemDetails = () => {
                         </div>
                         <div className="item_info_like">
                           <i className="fa fa-heart"></i>
-                          74
+                          {item.likes}
                         </div>
                       </div>
                       <p>
@@ -132,7 +134,7 @@ const ItemDetails = () => {
                           <div className="item_author">
                             <div className="author_list_pp">
                               <Link to="/author">
-                                <img className="lazy" src={AuthorImage} alt="" />
+                                <img className="lazy" src={item?.authorImage} alt="" />
                                 <i className="fa fa-check"></i>
                               </Link>
                             </div>
@@ -145,7 +147,7 @@ const ItemDetails = () => {
                         <h6>Price</h6>
                         <div className="nft-item-price">
                           <img src={EthImage} alt="" />
-                          <span>1.85</span>
+                          <span>{item.price}</span>
                         </div>
                       </div>
                     </div>

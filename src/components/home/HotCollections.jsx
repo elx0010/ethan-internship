@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
-import nftImage from "../../images/nftImage.jpg";
 import axios from "axios"
-import SimpleSlider from "../UI/Carousel";
+import HotCollectionsCarousel from "../UI/HotCollectionsCarousel";
 
 
 const HotCollections = () => {
@@ -29,7 +27,7 @@ const HotCollections = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <SimpleSlider collections = {collections} loading={loading} />
+          <HotCollectionsCarousel collections={collections} loading={loading} />
         </div>
       </div>
     </section>
