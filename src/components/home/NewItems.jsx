@@ -4,12 +4,9 @@ import axios from 'axios'
 import NewItemsCarousel from "../UI/NewItemsCarousel";
 
 const NewItems = () => {
-    let cancelId
-    let startTime
     const [loading, setLoading] = useState(true)
     const [items, setItems] = useState([])
     const [timeLeft, setTimeLeft] = useState({})
-    const [totalTime, setTotalTime] = useState({})
 
     useEffect(() => {
       async function fetchData() {
