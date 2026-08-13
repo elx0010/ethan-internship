@@ -6,7 +6,6 @@ import NewItemsCarousel from "../UI/NewItemsCarousel";
 const NewItems = () => {
     const [loading, setLoading] = useState(true)
     const [items, setItems] = useState([])
-    const [timeLeft, setTimeLeft] = useState({})
 
     useEffect(() => {
       async function fetchData() {
@@ -16,24 +15,6 @@ const NewItems = () => {
       }
       fetchData()
     }, [])
-    
-    useEffect(() => {
-      const interval = setInterval(() => {
-        const updated = {}
-          items.forEach(item => {
-            if (item.expiryDate === null) return
-            const secLeft = Math.floor((item.expiryDate - Date.now()) / 1000)
-            const s = secLeft % 60
-            const m = Math.floor(secLeft / 60 % 60)
-            const h = Math.floor(secLeft / 3600)
-            updated[item.id] = `${h}h ${m}m ${s}s`
-            if (h && m && s <= 0) return
-          })
-          setTimeLeft(updated)
-      }, 1000)
-      return () => clearInterval(interval)
-    }, [items])
-
 
 
   return (
@@ -46,7 +27,7 @@ const NewItems = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <NewItemsCarousel items={items} loading={loading} timeLeft={timeLeft} />
+          <NewItemsCarousel items={items} loading={loading} />
         </div>
       </div>
     </section>
