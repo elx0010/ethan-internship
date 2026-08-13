@@ -5,8 +5,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Skeleton from './Skeleton'
 import './NewItemsCarousel.css'
+import useCountdown from './Timer'
 
-const NewItemsCarousel = ({ items, loading, timeLeft }) => {
+const NewItemsCarousel = ({ items, loading }) => {
   var settings = {
     dots: false,
     infinite: true,
@@ -29,6 +30,8 @@ const NewItemsCarousel = ({ items, loading, timeLeft }) => {
     ]
   };
 
+  const timeLeft = useCountdown(items)
+  
   return (
     <Slider {...settings}>
       {loading ? (  

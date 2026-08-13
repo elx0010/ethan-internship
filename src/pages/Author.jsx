@@ -8,7 +8,7 @@ const Author = () => {
   const { id } = useParams()
   const [loading, setLoading] = useState(true)
   const [items, setItems] = useState([])
-  const item = items.find(item => item.authorId == id)
+  const item = items.find(item => item.authorId === id)
   
   useEffect(() => {
     async function fetchData() {
