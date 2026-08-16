@@ -44,9 +44,9 @@ const ExploreItems = () => {
             <div
               key={index}
               className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
-              style={{ display: "block", backgroundSize: "cover" }}
+              style={{ display: 'flex', marginBottom: '25px' }}
             >
-              <Skeleton width="260px" height="425px" borderRadius="10px" />
+              <Skeleton width="260px" height="420px" borderRadius="10px" />
             </div>
           ))}
         </>
@@ -97,12 +97,12 @@ const ExploreItems = () => {
                     </div>
                   </div>
                 </div>
-                <Link to="/item-details">
+                <Link to={`/item-details/${item.nftId}`} state={{ item }}>
                   <img src={item.nftImage} className="lazy nft__item_preview" alt="" />
                 </Link>
               </div>
               <div className="nft__item_info">
-                <Link to="/item-details">
+                <Link to={`/item-details/${item.nftId}`} state={{ item }}>
                   <h4>{item.title}</h4>
                 </Link>
                 <div className="nft__item_price">{item.price} ETH</div>
@@ -115,9 +115,9 @@ const ExploreItems = () => {
           </div>
         ))}
         {visibleItems === 16 ? <></> : <div className="col-md-12 text-center">
-          <Link onClick={incrementVisibleItems} to="" id="loadmore" className="btn-main lead">
+          <button onClick={incrementVisibleItems} to="" id="loadmore" className="btn-main lead">
             Load more
-          </Link>
+          </button>
         </div>}
       </>
     )}

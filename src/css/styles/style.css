@@ -13305,6 +13305,7 @@ a.read_more i {
   -webkit-border-radius: 100% !important;
   position: relative;
   z-index: 1;
+
 }
 
 .author_list_pp a:hover img {
@@ -13613,6 +13614,7 @@ a.read_more i {
 
 .item_author .author_list_pp {
   margin-left: 0;
+  position: relative;
 }
 
 .item_author .author_list_info {
@@ -15145,7 +15147,7 @@ a.btn-slider:hover {
   margin: 0 6px;
   display: inline-block;
   zoom: 1;
-  *display: inline;
+  display: inline;
 }
 
 .testi-slider .flex-control-paging li a {
@@ -16690,6 +16692,7 @@ img {
 .nft-image {
   height: 100%;
   width: 100%;
+  object-fit: contain;
 }
 
 #filter-items {

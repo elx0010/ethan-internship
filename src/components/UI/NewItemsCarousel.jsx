@@ -37,9 +37,7 @@ const NewItemsCarousel = ({ items, loading }) => {
       {loading ? (  
         new Array(4).fill(0).map((_, index) => (
           <div className="px-1" key={index}>
-            <div className="nft_coll">
               <Skeleton width="100%" height="300px" borderRadius="10px" />
-            </div>
           </div>
         ))
       ) : (
@@ -78,7 +76,7 @@ const NewItemsCarousel = ({ items, loading }) => {
                     </div>
                 </div>
 
-                <Link to={`/item-details/${item.nftId}`}>
+                <Link to={`/item-details/${item.nftId}`} state={{ item }}>
                     <img
                     src={item.nftImage}
                     className="lazy nft__item_preview"
@@ -87,7 +85,7 @@ const NewItemsCarousel = ({ items, loading }) => {
                 </Link>
                 </div>
                 <div className="nft__item_info">
-                <Link to="/item-details">
+                <Link to={`/item-details/${item.nftId}`} state={{ item }}>
                     <h4>{item.title}</h4>
                 </Link>
                 <div className="nft__item_price">{item.price} ETH</div>
