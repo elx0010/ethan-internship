@@ -34,9 +34,7 @@ const HotCollectionsCarousel = ({ collections, loading }) => {
       {loading ? (  
         new Array(4).fill(0).map((_, index) => (
           <div className="px-1" key={index}>
-            <div className="nft_coll">
               <Skeleton width="100%" height="300px" borderRadius="10px" />
-            </div>
           </div>
         ))
       ) : (
@@ -44,12 +42,12 @@ const HotCollectionsCarousel = ({ collections, loading }) => {
           <div className="px-1" key={item.id}>
             <div className="nft_coll">
               <div className="nft_wrap">
-                <Link to={`/item-details/${item.nftId}`}>
+                <Link to={`/item-details/${item.nftId}`} state={{ item }}>
                   <img src={item.nftImage} className="lazy img-fluid" alt="" />
                 </Link>
               </div>
               <div className="nft_coll_pp">
-                <Link to="/author">
+                <Link to={`/author/${item.authorId}`}>
                   <img className="lazy pp-coll" src={item.authorImage} alt="" />
                 </Link>
                 <i className="fa fa-check"></i>
