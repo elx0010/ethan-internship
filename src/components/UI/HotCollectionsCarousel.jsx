@@ -39,7 +39,11 @@ const HotCollectionsCarousel = ({ collections, loading }) => {
         ))
       ) : (
         collections.map((item) => (
-          <div className="px-1" key={item.id}>
+          <div
+            data-aos="fade-in"
+            data-aos-duration="1000"
+            className="px-1" key={item.id}
+          >
             <div className="nft_coll">
               <div className="nft_wrap">
                 <Link to={`/item-details/${item.nftId}`} state={{ item }}>
