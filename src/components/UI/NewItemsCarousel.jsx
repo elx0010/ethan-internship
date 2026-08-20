@@ -42,7 +42,11 @@ const NewItemsCarousel = ({ items, loading }) => {
         ))
       ) : (
         items.map((item) => (
-         <div className="px-2" key={item.id}>
+         <div 
+          data-aos="fade-in"
+          data-aos-duration="1000"
+          className="px-2" key={item.id}
+        >
             <div className="nft__item">
                 <div className="author_list_pp">
                 <Link

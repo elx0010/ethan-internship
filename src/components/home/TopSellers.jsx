@@ -27,7 +27,11 @@ const TopSellers = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <div className="col-md-12">
+          <div 
+            data-aos="fade-in"
+            data-aos-duration="1000"
+            className="col-md-12"
+          >
             <ol className="author_list">
               {loading ? (
                 new Array(12).fill(0).map((_, index) => (

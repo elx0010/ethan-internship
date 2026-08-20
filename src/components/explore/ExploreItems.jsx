@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios'
 import useCountdown from '../UI/Timer'
 import Skeleton from '../UI/Skeleton'
+import AOS from 'aos'
 
 const ExploreItems = () => {
   const [items, setItems] = useState([])
@@ -65,6 +66,7 @@ const ExploreItems = () => {
             key={item.id}
             className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
             style={{ display: "block", backgroundSize: "cover" }}
+            data-aos="fade-in"
           >
             <div className="nft__item">
               <div className="author_list_pp">
