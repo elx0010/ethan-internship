@@ -13612,14 +13612,20 @@ a.read_more i {
   margin-bottom: 15px;
 }
 
+.item_author {
+  display: flex;
+  align-items: center;
+}
+
 .item_author .author_list_pp {
   margin-left: 0;
   position: relative;
+  flex-shrink: 0;
 }
 
 .item_author .author_list_info {
-  padding-top: 10px;
-  padding-left: 70px;
+  padding-top: 0;
+  padding-left: 15px;
 }
 
 .nft__item {
