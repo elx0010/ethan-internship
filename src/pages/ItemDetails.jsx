@@ -17,7 +17,7 @@ const ItemDetails = () => {
       setLoading(false)
     }
     fetchData()
-  }, []);
+  }, [id]);
 
   return (
     <div id="wrapper">
